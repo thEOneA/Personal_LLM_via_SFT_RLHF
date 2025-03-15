@@ -24,7 +24,7 @@ To get started, install [Python](https://www.python.org/downloads/) and the requ
 pip install -r requirements.txt
 ```
 
-## What you will learn
+## What you will learn?
 
 This course covers:  
 
