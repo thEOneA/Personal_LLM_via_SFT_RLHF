@@ -96,9 +96,11 @@ class GPTLanguageModel(nn.Module):
         block_size: int,
         n_layer: int,
         dropout: float,
-        device: str
+        device: str,
+        ignore_index: int = -100
     ) -> None:
         super().__init__()
+        self.ignore_index = ignore_index
         self.block_size = block_size
         self.device = device
 
@@ -139,11 +141,22 @@ class GPTLanguageModel(nn.Module):
             B, T, C = logits.shape
             logits = logits.view(B*T, C)
             targets = targets.view(B*T)
-            loss = F.cross_entropy(logits, targets)
+            loss = F.cross_entropy(
+                logits, targets, ignore_index=self.ignore_index)
 
         return logits, loss
 
     def generate(self, input_tokens: torch.Tensor, max_new_tokens: int) -> torch.Tensor:
+        """
+        Generates new tokens from the model.
+
+        Args:
+            input_tokens: The initial input tokens.
+            max_new_tokens: The maximum number of tokens to generate.
+
+        Returns:
+            The generated tokens.
+        """
         for _ in range(max_new_tokens):
             cropped_input = input_tokens[:, -self.block_size:]
             logits, _ = self(cropped_input)
@@ -151,4 +164,54 @@ class GPTLanguageModel(nn.Module):
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
             input_tokens = torch.cat((input_tokens, idx_next), dim=1)
+        return input_tokens
+
+    def advanced_generation(
+        self,
+        input_tokens: torch.Tensor,
+        max_new_tokens: int,
+        temperature: float = 1.0,
+        top_k: Optional[int] = None,
+        top_p: Optional[float] = None
+    ) -> torch.Tensor:
+        """
+        Generates new tokens from the model.
+
+        Args:
+            input_tokens: The initial input tokens.
+            max_new_tokens: The maximum number of tokens to generate.
+            temperature: Controls randomness (higher = more random).
+            top_k: Limits generation to the top-k most likely tokens.
+            top_p: Limits generation to tokens with cumulative probability <= top_p.
+
+        Returns:
+            The generated tokens.
+        """
+        for _ in range(max_new_tokens):
+            cropped_input = input_tokens[:, -self.block_size:]
+            logits, _ = self(cropped_input)
+            logits = logits[:, -1, :] / temperature
+
+            if top_k is not None:
+                v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
+                logits[logits < v[:, [-1]]] = -float('Inf')
+
+            probs = F.softmax(logits, dim=-1)
+
+            if top_p is not None:
+                sorted_probs, sorted_indices = torch.sort(
+                    probs, descending=True)
+                cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+                sorted_indices_to_remove = cumulative_probs > top_p
+                sorted_indices_to_remove[...,
+                                         1:] = sorted_indices_to_remove[..., :-1].clone()
+                sorted_indices_to_remove[..., 0] = 0
+                indices_to_remove = torch.zeros_like(logits).scatter_(
+                    1, sorted_indices, sorted_indices_to_remove)
+                probs[indices_to_remove] = 0.0
+                probs = probs / probs.sum(dim=-1, keepdim=True)
+
+            idx_next = torch.multinomial(probs, num_samples=1)
+            input_tokens = torch.cat((input_tokens, idx_next), dim=1)
+
         return input_tokens
