@@ -37,6 +37,21 @@ This course covers:
 
 Each topic has a video in the [YouTube playlist](https://www.youtube.com/playlist?list=PLMSb3cZXtIfptKdr56uEdiM5pR6HDMoUX) and a Jupyter notebook in the [`notebooks/`](./notebooks/) folder.  
 
+## My experience
+
+Like you, I had never trained a language model before. After following the steps in this course, I built my own 42M parameter model called **BoDmagh**. In Moroccan Darija, "BoDmagh" could be translatd to **Someone with a brain**.
+
+Here are two example conversations I had with the model:  
+
+![conversation_1](./images/conversation_1.png)
+![conversation_2](./images/conversation_2.png)
+
+The [Supervised Fine-Tuning (SFT) dataset](https://github.com/ImadSaddik/BoDmaghDataset) I created really helped improve the model’s ability to hold a conversation.  
+
+### Limitations  
+
+The model doesn’t always give correct answers. If I try to discuss many different topics, it struggles. This is likely because both the model and the SFT dataset are small. Training on more data and using a larger model could improve the results. I might explore this in the future.
+
 ## Contributions
 
 We welcome contributions! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
