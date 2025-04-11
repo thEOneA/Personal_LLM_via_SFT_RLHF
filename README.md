@@ -11,7 +11,7 @@ I've made a YouTube playlist documenting every step. You can watch it at your ow
 ## What is in this repository?
 
 - `notebooks/`: Jupyter notebooks for each step in the pipeline.
-- `slides/`: Presentation slides used in the YouTube series.
+- `Slides.odp`: Presentation slides used in the YouTube series.
 - `data/`: Sample data and templates.
 - `transformer/`: Scripts for the Transformer and LoRA implementations.
 - `minbpe/`: A tokenizer from [Andrej' Karpathy's repo](https://github.com/karpathy/minbpe), since it's not available as a package.
