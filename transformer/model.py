@@ -217,3 +217,60 @@ class GPTLanguageModel(nn.Module):
             input_tokens = torch.cat((input_tokens, idx_next), dim=1)
 
         return input_tokens
+
+
+if __name__ == "__main__":
+    # Example usage
+    vocab_size = 16394
+    embedding_size = 512
+    number_of_heads = 8
+    block_size = 1024
+    number_of_blocks = 1
+    dropout = 0.2
+    head_size = embedding_size // number_of_heads
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    model = GPTLanguageModel(
+        vocab_size=vocab_size,
+        n_embd=embedding_size,
+        n_head=number_of_heads,
+        block_size=block_size,
+        n_layer=number_of_blocks,
+        dropout=dropout,
+        device=device
+    )
+
+    model_size = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Model size: {model_size / 1e6:.2f}M parameters")
+
+    print(
+        f"Model created with {embedding_size=}, {number_of_heads=}, head_size={embedding_size//number_of_heads}")
+
+    # Create dummy input
+    input_tokens = torch.randint(0, vocab_size, (2, 50), device=device)
+
+    # Test forward pass
+    # Use input as target for testing shape
+    logits, loss = model(input_tokens, targets=input_tokens)
+    if loss is not None:
+        print("Loss:", loss.item())
+
+    # Test generation
+    print("Generating...")
+    # Start generation from first 10 tokens
+    generated_tokens = model.generate(input_tokens[:, :10], max_new_tokens=20)
+    print("Generated tokens shape:", generated_tokens.shape)
+    print("Generated sequence example (first batch):\n",
+          generated_tokens[0].tolist())
+
+    # Test advanced generation
+    print("\nAdvanced Generating (top_k=5, temp=0.8)...")
+    generated_tokens_adv = model.advanced_generation(
+        input_tokens[:, :10],
+        max_new_tokens=20,
+        temperature=0.8,
+        top_k=10
+    )
+    print("Generated tokens shape (adv):", generated_tokens_adv.shape)
+    print("Generated sequence example (adv, first batch):\n",
+          generated_tokens_adv[0].tolist())
