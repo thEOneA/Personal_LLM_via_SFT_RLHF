@@ -25,6 +25,9 @@ Here are some helpful resources I used while making this course. I’m sharing t
 - [Step-by-step guide to fine-tune LLMs with LoRA](https://medium.com/@manindersingh120996/practical-guide-to-fine-tune-llms-with-lora-c835a99d7593)  
 - [Fine-tuning LLMs for multi-turn conversations](https://www.together.ai/blog/fine-tuning-llms-for-multi-turn-conversations-a-technical-deep-dive#:~:text=Fine-tuning%20LLMs%20for%20multi-turn%20conversations%20requires%20careful%20attention,while%20managing%20computational%20resources%20efficiently.)  
 - [Fine-tuning mixtral 7bx8 with LoRA](https://medium.com/@prakharsaxena11111/finetuning-mixtral-7bx8-6071b0ebf114)
+- [Positional Encoding Explained: A Deep Dive into Transformer PE](https://medium.com/thedeephub/positional-encoding-explained-a-deep-dive-into-transformer-pe-65cfe8cfe10b)
+- [You could have designed state of the art positional encoding](https://huggingface.co/blog/designing-positional-encoding)
+- [Relative Positional Encoding](https://jaketae.github.io/study/relative-positional-encoding/)
 
 ## Reddit discussions  
 
