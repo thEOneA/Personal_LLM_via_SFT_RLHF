@@ -70,6 +70,8 @@ class Block(nn.Module):
     def __init__(self, n_embd: int, n_head: int, block_size: int, dropout: float) -> None:
         super().__init__()
         head_size = n_embd // n_head
+        error_message = f"n_embd {n_embd} must be divisible by n_head {n_head}"
+        assert head_size * n_head == n_embd, error_message
         self.self_attention = MultiHeadAttention(
             n_embd=n_embd,
             num_heads=n_head,
