@@ -113,7 +113,7 @@ class MultiHeadAttention(nn.Module):
         return out
 
 
-class FeedFoward(nn.Module):
+class FeedForward(nn.Module):
     def __init__(self, n_embd: int, dropout: float) -> None:
         super().__init__()
         self.net = nn.Sequential(
@@ -148,7 +148,7 @@ class Block(nn.Module):
             dropout=dropout,
             max_relative_distance=max_relative_distance
         )
-        self.feed_forward = FeedFoward(n_embd, dropout)
+        self.feed_forward = FeedForward(n_embd, dropout)
         self.layer_norm_1 = nn.LayerNorm(n_embd)
         self.layer_norm_2 = nn.LayerNorm(n_embd)
 

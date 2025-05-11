@@ -222,7 +222,7 @@ class MultiHeadAttention(nn.Module):
         return self.dropout(self.projection(out))
 
 
-class FeedFoward(nn.Module):
+class FeedForward(nn.Module):
     """ a simple linear layer followed by a non-linearity """
 
     def __init__(
@@ -283,7 +283,7 @@ class Block(nn.Module):
             dropout=dropout,
             rotary_embeddings=rotary_embeddings
         )
-        self.feed_forward = FeedFoward(embedding_size, dropout)
+        self.feed_forward = FeedForward(embedding_size, dropout)
         self.layer_norm_1 = nn.LayerNorm(embedding_size)
         self.layer_norm_2 = nn.LayerNorm(embedding_size)
 

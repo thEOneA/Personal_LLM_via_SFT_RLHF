@@ -48,7 +48,7 @@ class MultiHeadAttention(nn.Module):
         return out
 
 
-class FeedFoward(nn.Module):
+class FeedForward(nn.Module):
     """ a simple linear layer followed by a non-linearity """
 
     def __init__(self, n_embd: int, dropout: float) -> None:
@@ -79,7 +79,7 @@ class Block(nn.Module):
             block_size=block_size,
             dropout=dropout
         )
-        self.feed_forward = FeedFoward(n_embd, dropout)
+        self.feed_forward = FeedForward(n_embd, dropout)
         self.layer_norm_1 = nn.LayerNorm(n_embd)
         self.layer_norm_2 = nn.LayerNorm(n_embd)
 
