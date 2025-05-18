@@ -85,7 +85,7 @@ class Head(nn.Module):
         row_selector = row_selector.view(T, self.num_random_tokens)
         random_attention_mask[row_selector, random_cols] = True
 
-        # Combine local and global components
+        # Combine local and global and random components
         combined_mask = local_attention_mask | global_attention_mask_component | random_attention_mask
 
         final_mask = combined_mask & causal_mask
