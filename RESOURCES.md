@@ -28,6 +28,12 @@ Here are some helpful resources I used while making this course. I’m sharing t
 - [Positional Encoding Explained: A Deep Dive into Transformer PE](https://medium.com/thedeephub/positional-encoding-explained-a-deep-dive-into-transformer-pe-65cfe8cfe10b)
 - [You could have designed state of the art positional encoding](https://huggingface.co/blog/designing-positional-encoding)
 - [Relative Positional Encoding](https://jaketae.github.io/study/relative-positional-encoding/)
+- [What is grouped query attention (GQA)?](https://www.ibm.com/think/topics/grouped-query-attention)
+- [Linear Attention Is All You Need](https://medium.com/data-science/linear-attention-is-all-you-need-5fa9c845c1b5)
+- [Attention Variations — MQA vs GQA vs MHA vs MLA](https://verticalserve.medium.com/group-query-attention-58283b337c65)
+- [Understanding Multi-Head Latent Attention](https://planetbanatt.net/articles/mla.html)
+- [DeepSeek's Multi-Head Latent Attention](https://liorsinai.github.io/machine-learning/2025/02/22/mla.html#multi-head-latent-attention)
+- [Sliding Window Attention](https://medium.com/@manojkumal/sliding-window-attention-565f963a1ffd)
 
 ## Reddit discussions  
 
@@ -40,3 +46,18 @@ Here are some helpful resources I used while making this course. I’m sharing t
 - [Unsloth AI Notebooks](https://docs.unsloth.ai/get-started/unsloth-notebooks)  
 - [LLMs-from-Scratch: Chapter 6 Notebook](https://github.com/rasbt/LLMs-from-scratch/blob/main/ch06/01_main-chapter-code/ch06.ipynb?utm_source=substack&utm_medium=email)  
 - [LoRA Implementation from Scratch](https://www.kaggle.com/code/aisuko/lora-from-scratch)  
+
+## Scripts
+
+- [Multi-Head Latent Attention (MLA) Implementation](https://github.com/ambisinister/mla-experiments/blob/main/modeling/attention/mla.py)
+
+## Research papers
+
+- [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/pdf/2405.04434)
+- [Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://arxiv.org/pdf/2006.16236)
+- [LINEAR ATTENTION IS (MAYBE) ALL YOU NEED (TO UNDERSTAND TRANSFORMER OPTIMIZATION)](https://arxiv.org/pdf/2310.01082)
+- [Attention Is All You Need](https://arxiv.org/pdf/1706.03762)
+- [Longformer: The Long-Document Transformer](https://arxiv.org/pdf/2004.05150)
+- [Effective Approaches to Attention-based Neural Machine Translation](https://arxiv.org/pdf/1508.04025)
+- [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/pdf/2305.13245)
+- [Big Bird: Transformers for Longer Sequences](https://arxiv.org/pdf/2007.14062)
