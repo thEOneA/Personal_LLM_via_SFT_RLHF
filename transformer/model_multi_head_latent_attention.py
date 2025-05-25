@@ -290,23 +290,17 @@ class GPTLanguageModel(nn.Module):
 
 
 if __name__ == "__main__":
-    # Example usage
     vocab_size = 16394
-    embedding_size = 512  # n_embd
-    number_of_heads = 8  # n_head
-    block_s = 1024       # Max sequence length for positional encoding and generation context
-    number_of_layers = 1  # n_layer
+    embedding_size = 512
+    number_of_heads = 8
+    block_s = 1024
+    number_of_layers = 1
     dropout_rate = 0.1
 
     # --- MLA Parameters ---
-    # From DeepSeek-V2 paper: d_c (kv_compression_dim) = 4 * d_h
-    # d_c' (q_compression_dim) = 1536 for d=5120 (which is 0.3 * d)
-    # For our smaller model (n_embd=512):
-    head_dim = embedding_size // number_of_heads  # 512 / 8 = 64
-    kv_comp_dim = 4 * head_dim  # 4 * 64 = 256
-    # Or int(embedding_size * 0.3) = 153. Let's use n_embd // 2 for simplicity.
+    head_dim = embedding_size // number_of_heads
+    kv_comp_dim = 4 * head_dim
     q_comp_dim = embedding_size // 2
-    # q_comp_dim = 256 # Let's try making it same as kv_comp_dim for a start
     # ----------------------
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -335,7 +329,6 @@ if __name__ == "__main__":
     print(
         f"MLA params: q_compression_dim={q_comp_dim}, kv_compression_dim={kv_comp_dim}")
 
-    # Create dummy input
     test_seq_len = 64
     input_tokens = torch.randint(
         0, vocab_size, (2, test_seq_len), device=device)
