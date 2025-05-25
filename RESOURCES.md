@@ -34,12 +34,19 @@ Here are some helpful resources I used while making this course. I’m sharing t
 - [Understanding Multi-Head Latent Attention](https://planetbanatt.net/articles/mla.html)
 - [DeepSeek's Multi-Head Latent Attention](https://liorsinai.github.io/machine-learning/2025/02/22/mla.html#multi-head-latent-attention)
 - [Sliding Window Attention](https://medium.com/@manojkumal/sliding-window-attention-565f963a1ffd)
+- [Can LLMs learn from a single example?](https://www.fast.ai/posts/2023-09-04-learning-jumps/)
+- [Normalization Layer Placement (Pre-LN vs Post-LN)](https://apxml.com/courses/how-to-build-a-large-language-model/chapter-11-scaling-transformers-architectural-choices/normalization-layer-placement)
+- [Batch Normalization, Layer Normalization and Root Mean Square Layer Normalization: A Comprehensive Guide with Python Implementations](https://afterhoursresearch.hashnode.dev/batch-normalization-layer-normalization-and-root-mean-square-layer-normalization-a-comprehensive-guide-with-python-implementations)
+- [Deep Dive into Deep Learning: Layers, RMSNorm, and Batch Normalization](https://2020machinelearning.medium.com/deep-dive-into-deep-learning-layers-rmsnorm-and-batch-normalization-b2423552be9f)
+- [Exploring SwiGLU : The Activation Function Powering Modern LLMs](https://medium.com/@s_boudefel/exploring-swiglu-the-activation-function-powering-modern-llms-9697f88221e7)
+- [All the Activation Functions (and a history of deep learning)](https://dublog.net/blog/all-the-activations/)
 
 ## Reddit discussions  
 
 - [Finetuned Llama 2-7B using WhatsApp chats](https://www.reddit.com/r/LocalLLaMA/comments/18ny05c/finetuned_llama_27b_on_my_whatsapp_chats/)  
 - [How to train your model](https://www.reddit.com/r/Oobabooga/comments/19480dr/how_to_train_your_dra_model/?share_id=FandRNmK84MItOJYIynap&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1)  
-- [Exporting full WhatsApp chat history](https://www.reddit.com/r/DataHoarder/comments/a7c0yq/full_whatsapp_chat_export_40000_messages/)  
+- [Exporting full WhatsApp chat history](https://www.reddit.com/r/DataHoarder/comments/a7c0yq/full_whatsapp_chat_export_40000_messages/)
+- [Normalization in transformers](https://www.reddit.com/r/MachineLearning/comments/1ecict8/d_normalization_in_transformers/)
 
 ## Notebooks  
 
@@ -50,6 +57,7 @@ Here are some helpful resources I used while making this course. I’m sharing t
 ## Scripts
 
 - [Multi-Head Latent Attention (MLA) Implementation](https://github.com/ambisinister/mla-experiments/blob/main/modeling/attention/mla.py)
+- [RMSNorm Implementation](https://github.com/meta-llama/llama/blob/main/llama/model.py#L34-L77)
 
 ## Research papers
 
@@ -61,3 +69,11 @@ Here are some helpful resources I used while making this course. I’m sharing t
 - [Effective Approaches to Attention-based Neural Machine Translation](https://arxiv.org/pdf/1508.04025)
 - [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/pdf/2305.13245)
 - [Big Bird: Transformers for Longer Sequences](https://arxiv.org/pdf/2007.14062)
+- [Root Mean Square Layer Normalization](https://arxiv.org/pdf/1910.07467)
+- [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
+- [On Layer Normalization in the Transformer Architecture](https://arxiv.org/pdf/2002.04745)
+- [Root Mean Square Layer Normalization](https://arxiv.org/pdf/1910.07467)
+- [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167)
+- [Layer Normalization](https://arxiv.org/pdf/1607.06450)
+- [Dropout Reduces Underfitting](https://arxiv.org/pdf/2303.01500)
+- [GLU Variants Improve Transformer](https://arxiv.org/pdf/2002.05202v1)
