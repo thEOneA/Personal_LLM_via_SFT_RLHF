@@ -1,65 +1,52 @@
-# Train your language model course
+# Personal LLM: Train Your Own Language Model from Scratch
 
-We’ve all used Large Language Models (LLMs) and been amazed by what they can do. I wanted to understand how these models are built, so I created this course.
+Welcome to the Personal LLM project! This repository is a hands-on, end-to-end guide and toolkit for training your own Large Language Model (LLM) from scratch, using real-world chat data and modern transformer architectures. The project is designed for learners, researchers, and hobbyists who want to deeply understand and experiment with every stage of the LLM pipeline.
 
-I’m from Morocco and speak Moroccan Darija. Most LLMs today understand it a little, but they can't hold proper conversations in Darija. So, as a challenge, I decided to train a language model from scratch using my own WhatsApp conversations in Darija.
+**Author:** Nick Shin  
+**Affiliation:** Fudan University
 
-I've made a YouTube playlist documenting every step. You can watch it at your own pace. If anything is unclear, feel free to open an issue in this repository. I’ll be happy to help!
+## Project Highlights
 
-[![course_thumbnail](./images/course_thumbnail%20.png)](https://www.youtube.com/playlist?list=PLMSb3cZXtIfptKdr56uEdiM5pR6HDMoUX)
+- **Complete LLM Training Pipeline**: From raw WhatsApp chat data to a fine-tuned conversational model.
+- **Custom Tokenizer**: Byte Pair Encoding (BPE) implementation for efficient text processing.
+- **Multiple Transformer Variants**: Explore different attention mechanisms, positional encodings, and activation functions.
+- **Parameter-Efficient Fine-Tuning**: Includes LoRA (Low-Rank Adaptation) and instruction tuning.
+- **Visualization & Analysis**: Scripts and notebooks for loss curves, activations, and more.
+- **Extensive Documentation**: YouTube video series, slides, and detailed notebooks.
 
-## What is in this repository?
+---
 
-- `notebooks/`: Jupyter notebooks for each step in the pipeline.
-- `Slides.odp`: Presentation slides used in the YouTube series.
-- `data/`: Sample data and templates.
-- `transformer/`: Scripts for the Transformer and LoRA implementations.
-- `minbpe/`: A tokenizer from [Andrej' Karpathy's repo](https://github.com/karpathy/minbpe), since it's not available as a package.
+## Directory Structure
 
-## Setup
+- `notebooks/` — Jupyter notebooks for each step: data cleaning, tokenization, model building, pre-training, fine-tuning, and advanced experiments.
+- `transformer/` — Python modules for transformer architectures, attention types, and LoRA.
+- `minbpe/` — BPE tokenizer implementation (adapted from Karpathy’s repo).
+- `scripts/` — Utility scripts for plotting and visualization.
+- `data/` — Sample WhatsApp data and templates for training/validation.
+- `output/` — Generated datasets, tokenizers, and model checkpoints.
+- `loss_values/` — Training logs and loss curves for various experiments.
+- `colab/` — Google Colab notebook for cloud-based training.
+- `images/` — Visual assets for documentation and presentations.
 
-To get started, install [Python](https://www.python.org/downloads/) and the required dependencies by running:  
+---
 
-```bash
-pip install -r requirements.txt
-```
+## Getting Started
 
-## What you will learn?
+1. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Explore the notebooks** in `notebooks/` for a step-by-step learning experience.
+3. **Run scripts** in `scripts/` for visualizations and analysis.
+4. **Train and fine-tune models** using code in `transformer/` and your own data in `data/`.
 
-This course covers:  
+---
 
-1. Extracting data from WhatsApp.  
-2. Tokenizing text using the BPE algorithm.  
-3. Understanding Transformer models.  
-4. Pre-training the model.  
-5. Creating a fine-tuning dataset.  
-6. Fine-tuning the model (Instruction tuning and LoRA fine-tuning).  
+## Learning Path
 
-Each topic has a video in the [YouTube playlist](https://www.youtube.com/playlist?list=PLMSb3cZXtIfptKdr56uEdiM5pR6HDMoUX) and a Jupyter notebook in the [`notebooks/`](./notebooks/) folder.  
-
-## My experience
-
-Like you, I had never trained a language model before. After following the steps in this course, I built my own 42M parameter model called **BoDmagh**. In Moroccan Darija, **BoDmagh** can mean **someone with a brain**. The word **Bo + [noun]** means something is deep inside you, so **BoDmagh** can also mean a smart person.
-
-Here are two example conversations I had with the model:  
-
-![conversation_1](./images/conversation_1.png)
-![conversation_2](./images/conversation_2.png)
-
-The [Supervised Fine-Tuning (SFT) dataset](https://github.com/ImadSaddik/BoDmaghDataset) I created really helped improve the model’s ability to hold a conversation.  
-
-### Limitations  
-
-The model doesn’t always give correct answers. If I try to discuss many different topics, it struggles. This is likely because both the model and the SFT dataset are small. Training on more data and using a larger model could improve the results. I might explore this in the future.
-
-## Contributions
-
-We welcome contributions! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## Need help?
-
-You can reach me through:  
-
-- **YouTube** – Leave a comment on the videos.  
-- **LinkedIn** – [Connect with me](https://www.linkedin.com/in/imadsaddik/).  
-- **Email** – [simad3647@gmail.com](mailto:simad3647@gmail.com).  
+- **Data Extraction & Cleaning**: Process WhatsApp chats for NLP tasks.
+- **Tokenization**: Implement and use BPE for text encoding.
+- **Model Building**: Code transformer architectures from scratch.
+- **Pre-training**: Train your model on your own or provided data.
+- **Fine-tuning**: Instruction tuning and LoRA for conversational ability.
+- **Advanced Experiments**: Try different attention mechanisms, normalization, and scaling strategies.
